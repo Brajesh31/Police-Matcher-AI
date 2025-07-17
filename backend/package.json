@@ -1,0 +1,26 @@
+{
+  "name": "police-search",
+  "version": "1.5.25",
+  "description": "it is a police prediction agent",
+  "main": "app.js",
+  "scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js"
+},
+  "keywords": [
+    "police"
+  ],
+  "author": "Megh Deb",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

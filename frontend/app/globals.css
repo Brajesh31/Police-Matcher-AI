@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 46 33% 95%;
+  --foreground: 222 47% 11%;
+
+  --primary: 184 40% 47%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 186 24% 71%;
+  --secondary-foreground: 222 47% 11%;
+
+  --accent: 210 64% 43%;
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 46 33% 90%;
+  --muted-foreground: 215 16% 47%;
+
+  --card: 46 33% 95%;
+  --card-foreground: 222 47% 11%;
+
+  --border: 186 24% 71%;
+  --input: 186 24% 71%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --ring: 184 40% 47%;
+}
+
+.dark {
+  --background: 240 5% 10%;
+  --foreground: 0 0% 95%;
+
+  --primary: 184 40% 47%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 186 24% 71%;
+  --secondary-foreground: 222 47% 11%;
+
+  --accent: 210 64% 43%;
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 240 5% 20%;
+  --muted-foreground: 240 5% 65%;
+
+  --card: 240 5% 15%;
+  --card-foreground: 0 0% 95%;
+
+  --border: 184 40% 47%;
+  --input: 184 40% 47%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --ring: 184 40% 47%;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.chat-command-suggestion {
+  @apply bg-[#F2EFE7] dark:bg-zinc-800 border border-[#9ACBD0] dark:border-[#48A6A7] rounded-md p-2 shadow-md;
+}
+
+.chat-command-suggestion-item {
+  @apply px-3 py-1.5 hover:bg-[#9ACBD0]/20 dark:hover:bg-[#48A6A7]/20 rounded cursor-pointer;
+}
+
+.chat-command-suggestion-item.active {
+  @apply bg-[#9ACBD0]/30 dark:bg-[#48A6A7]/30;
+}
+
+.officer-card {
+  @apply bg-white dark:bg-zinc-800 rounded-lg p-5 border-l-4 border-[#2973B2] shadow-md transition-all duration-300 hover:shadow-lg hover:translate-x-1;
+}
+
+.message-bubble {
+  @apply rounded-lg p-4 max-w-[80%] shadow-md;
+}
+
+.user-message {
+  @apply bg-gradient-to-r from-[#2973B2] to-[#2973B2]/90 text-white self-end;
+}
+
+.bot-message {
+  @apply bg-gradient-to-r from-[#9ACBD0] to-[#9ACBD0]/90 dark:from-[#48A6A7] dark:to-[#48A6A7]/90 text-zinc-900 dark:text-white self-start;
+}
+
+.typing-animation span {
+  @apply inline-block w-2 h-2 rounded-full bg-[#9ACBD0] dark:bg-[#48A6A7] mx-0.5;
+  animation: typing 1.4s infinite both;
+}
+
+.typing-animation span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-animation span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+}
+
+.wave-animation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-animation svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.wave-animation .shape-fill {
+  fill: #9acbd0;
+}
+
+.dark .wave-animation .shape-fill {
+  fill: #48a6a7;
+}
+
+button {
+  @apply transition-all duration-200;
+}
+
+/* Improve the chat interface */
+.chat-interface {
+  @apply bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm;
+}
